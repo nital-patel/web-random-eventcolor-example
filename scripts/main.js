@@ -1,11 +1,21 @@
 var btn = document.querySelector('button');
-
+for(var i = 1; i <= 16; i++) {
+    var myDiv = document.createElement('div');
+    document.body.appendChild(myDiv);
+}
 function random(number) {
     return Math.floor(Math.random()*number);
 }
-
 function bgChange(e) {
-    var rndCol = 'rgb(' + random(255) + ',' + random(255) + '.' + random(255) + ')';
-    e.target.style.backgroundColor = rndCol;
-    console.log(e);
+    var rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+    return rndCol;
+
+}
+
+var divs = document.querySelectorAll('div');
+
+for(var i = 0; i < divs.length; i++) {
+    divs[i].onclick = function(e) {
+        e.target.style.backgroundColor = bgChange();
+    }
 }
